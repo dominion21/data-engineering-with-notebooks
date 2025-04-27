@@ -39,7 +39,7 @@ jobs:
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
         run: |
           snow sql -q "ALTER GIT REPOSITORY DEMO_GIT_REPO FETCH" --temporary-connection --account $SNOWFLAKE_ACCOUNT --user $SNOWFLAKE_USER --role $SNOWFLAKE_ROLE --warehouse $SNOWFLAKE_WAREHOUSE --database $SNOWFLAKE_DATABASE --schema $SNOWFLAKE_SCHEMA
-          snow sql -q "EXECUTE IMMEDIATE FROM @DEMO_GIT_REPO/branches/dev/scripts/Nexus_insert.sql USING (env => 'dev', branch => 'dev')" --temporary-connection --account $SNOWFLAKE_ACCOUNT --user $SNOWFLAKE_USER --role $SNOWFLAKE_ROLE --warehouse $SNOWFLAKE_WAREHOUSE --database $SNOWFLAKE_DATABASE --schema $SNOWFLAKE_SCHEMA
+          snow sql -q "EXECUTE IMMEDIATE FROM @DEMO_GIT_REPO/branches/dev/scripts/Nexus_insert1.sql USING (env => 'dev', branch => 'dev')" --temporary-connection --account $SNOWFLAKE_ACCOUNT --user $SNOWFLAKE_USER --role $SNOWFLAKE_ROLE --warehouse $SNOWFLAKE_WAREHOUSE --database $SNOWFLAKE_DATABASE --schema $SNOWFLAKE_SCHEMA
 
           : # Ideally both Snow CLI and the Python Connector could be configured entirely from env variables
           : #python $GITHUB_WORKSPACE/scripts/deploy_task_dag.py DEMO_DB PROD_SCHEMA
