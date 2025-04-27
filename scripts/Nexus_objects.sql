@@ -5,14 +5,14 @@
 -- but do not change any object names or the join builder demo will not work.
 -- If you have any installation issues, please contact helpdesk@coffingdw.com.
 
-CREATE OR REPLACE DATABASE Nom;
-USE DATABASE Non;
-CREATE OR REPLACE SCHEMA dbo;
+--CREATE OR REPLACE DATABASE Nom;
+--USE DATABASE Non;
+--CREATE OR REPLACE SCHEMA dbo;
 
-CREATE OR REPLACE warehouse Nom_WH;
-USE  warehouse Nom_WH;
+--CREATE OR REPLACE warehouse Nom_WH;
+--USE  warehouse Nom_WH;
 
-use SCHEMA dbo;
+--use SCHEMA dbo;
 CREATE OR REPLACE TABLE CUSTOMER_TABLE
  (CUSTOMER_NUMBER  INTEGER, CUSTOMER_NAME VARCHAR(20), PHONE_NUMBER CHAR(8));
 
