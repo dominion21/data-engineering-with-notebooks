@@ -54,21 +54,21 @@ CREATE OR REPLACE  FILE FORMAT ff_IPEDS_Parquet
 -- Create stage area to load Parquet file 
 CREATE OR REPLACE stage IPEDS_ADM FILE_FORMAT = ff_IPEDS_Parquet;
 
-put file://D:\snowflake_python_conn\load_sf_py\nexus\hd_csv\HD2017.csv @IPEDS_HD;  
-put file://D:\snowflake_python_conn\load_sf_py\nexus\hd_csv\HD2018.csv @IPEDS_HD;
-put file://D:\snowflake_python_conn\load_sf_py\nexus\hd_csv\HD2019.csv @IPEDS_HD;
+put file:/hd_csv/hd2017.csv @IPEDS_HD OVERWRITE=TRUE;  
+put file:/hd_csv/hd2018.csv @IPEDS_HD OVERWRITE=TRUE;
+put file:/hd_csv/hd2018.csv @IPEDS_HD OVERWRITE=TRUE;
 
-put file://D:\snowflake_python_conn\load_sf_py\nexus\effy_json\effy2017_rv.json @IPEDS_EFFY;
-put file://D:\snowflake_python_conn\load_sf_py\nexus\effy_json\effy2018_rv.json @IPEDS_EFFY;
-put file://D:\snowflake_python_conn\load_sf_py\nexus\effy_json\effy2019_rv.json @IPEDS_EFFY;
+put file:/effy_json/effy2017_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
+put file:/effy_json/effy2018_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
+put file:/effy_json/effy2019_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
 
-put file://D:\snowflake_python_conn\load_sf_py\nexus\ORC\ic2017_ay_orc.orc @IPEDS_IC/2017/;
-put file://D:\snowflake_python_conn\load_sf_py\nexus\ORC\ic2018_ay_orc.orc @IPEDS_IC/2018/;
-put file://D:\snowflake_python_conn\load_sf_py\nexus\ORC\ic2019_ay_orc.orc @IPEDS_IC/2019/;
+put file:/ORC/ic2017_ay_orc.orc @IPEDS_IC/2017/ OVERWRITE=TRUE;
+put file:/ORC/ic2018_ay_orc.orc @IPEDS_IC/2018/ OVERWRITE=TRUE;
+put file:/ORC/ic2019_ay_orc.orc @IPEDS_IC/2019/ OVERWRITE=TRUE;
 
-put file://D:\snowflake_python_conn\load_sf_py\nexus\ADM_parquet\adm2017.parquet @IPEDS_ADM/2017/;
-put file://D:\snowflake_python_conn\load_sf_py\nexus\ADM_parquet\adm2018.parquet @IPEDS_ADM/2018/;
-put file://D:\snowflake_python_conn\load_sf_py\nexus\ADM_parquet\adm2019.parquet @IPEDS_ADM/2019/;
+put file:/ADM_parquet/adm2017.parquet @IPEDS_ADM/2017/ OVERWRITE=TRUE;
+put file:/ADM_parquet/adm2018.parquet @IPEDS_ADM/2018/ OVERWRITE=TRUE;
+put file:/ADM_parquet/adm2019.parquet @IPEDS_ADM/2019/ OVERWRITE=TRUE;
 
 DROP TABLE IF EXISTS od_AcademicInstitution;
 
@@ -416,8 +416,7 @@ $$
 DROP TABLE IF EXISTS AcademicInstitution;
 
 CREATE TABLE AcademicInstitution (
-  AcademicInstitutionUniqueDWSID INTEGER 
-		NOT NULL DEFAULT SEQ_IPEDS_HD.NEXTVAL,
+  AcademicInstitutionUniqueDWSID INTEGER,
   InstitutionIdentifier INTEGER,
   InstitutionName VARCHAR(2000),
   InstitutionNameAlias VARCHAR(2000),
