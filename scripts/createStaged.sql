@@ -54,21 +54,21 @@ CREATE OR REPLACE  FILE FORMAT ff_IPEDS_Parquet
 -- Create stage area to load Parquet file 
 CREATE OR REPLACE stage IPEDS_ADM FILE_FORMAT = ff_IPEDS_Parquet;
 
-put file:/hd_csv/hd2017.csv @IPEDS_HD OVERWRITE=TRUE;  
-put file:/hd_csv/hd2018.csv @IPEDS_HD OVERWRITE=TRUE;
-put file:/hd_csv/hd2018.csv @IPEDS_HD OVERWRITE=TRUE;
+--put file:/hd_csv/hd2017.csv @IPEDS_HD OVERWRITE=TRUE;  
+--put file:/hd_csv/hd2018.csv @IPEDS_HD OVERWRITE=TRUE;
+--put file:/hd_csv/hd2018.csv @IPEDS_HD OVERWRITE=TRUE;
 
-put file:/effy_json/effy2017_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
-put file:/effy_json/effy2018_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
-put file:/effy_json/effy2019_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
+--put file:/effy_json/effy2017_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
+--put file:/effy_json/effy2018_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
+--put file:/effy_json/effy2019_rv.json @IPEDS_EFFY OVERWRITE=TRUE;
 
-put file:/ORC/ic2017_ay_orc.orc @IPEDS_IC/2017/ OVERWRITE=TRUE;
-put file:/ORC/ic2018_ay_orc.orc @IPEDS_IC/2018/ OVERWRITE=TRUE;
-put file:/ORC/ic2019_ay_orc.orc @IPEDS_IC/2019/ OVERWRITE=TRUE;
+--put file:/ORC/ic2017_ay_orc.orc @IPEDS_IC/2017/ OVERWRITE=TRUE;
+--put file:/ORC/ic2018_ay_orc.orc @IPEDS_IC/2018/ OVERWRITE=TRUE;
+--put file:/ORC/ic2019_ay_orc.orc @IPEDS_IC/2019/ OVERWRITE=TRUE;
 
-put file:/ADM_parquet/adm2017.parquet @IPEDS_ADM/2017/ OVERWRITE=TRUE;
-put file:/ADM_parquet/adm2018.parquet @IPEDS_ADM/2018/ OVERWRITE=TRUE;
-put file:/ADM_parquet/adm2019.parquet @IPEDS_ADM/2019/ OVERWRITE=TRUE;
+--put file:/ADM_parquet/adm2017.parquet @IPEDS_ADM/2017/ OVERWRITE=TRUE;
+--put file:/ADM_parquet/adm2018.parquet @IPEDS_ADM/2018/ OVERWRITE=TRUE;
+--put file:/ADM_parquet/adm2019.parquet @IPEDS_ADM/2019/ OVERWRITE=TRUE;
 
 DROP TABLE IF EXISTS od_AcademicInstitution;
 
